@@ -1,0 +1,10 @@
+<home *ngIf="showHome"></home>
+<br> Our services are:
+<ul>
+  <li *ngFor="let service of services">
+    <h1>{{ service.title }}</h1>
+    <p>{{service.description}}</p>
+  </li>
+</ul>
+<button (click)="showMore()">Show more '{{clicked}}</button>
+<button (click)="goHome()">Go home</button>

@@ -1,0 +1,41 @@
+<div class="col-md-7">
+  <!-- About
+              ================================================= -->
+  <!-- <div class="people-nearby">
+    <h1>Followers</h1>
+    <div class="nearby-user" *ngFor='let follower of followersObservable|async'>
+      <div class="row" *ngIf='follower.user|async;let user'>
+        <div class="col-md-2 col-sm-2">
+         <lazy-image  src="images/placeholder.png" alt="user" class="profile-photo-lg pull-left" dataSrc="{{user.small_picture_path}}"></lazy-image>
+        </div>
+        <div class="col-md-7 col-sm-7">
+          <h5><a href="#" class="profile-link">{{user.display_name}}</a></h5>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <button class="btn btn-primary pull-right">Follow</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="people-nearby">
+    <h1>{{follow_type=='followers'?'Followers':'Following'}}</h1>
+    <div class="nearby-user" *ngFor='let following of usersObservable|async'>
+      <div class="row" *ngIf='following.user|async;let user'>
+        <div class="col-md-2 col-sm-2" (click)="gotoUserProfile(user.id)">
+          <lazy-image  src="images/placeholder.png" alt="user" class="profile-photo-lg pull-left" dataSrc="{{user.small_picture_path}}"></lazy-image>
+        </div>
+        <div class="col-md-7 col-sm-7">
+          <h5><a (click)="gotoUserProfile(user.id)" class="profile-link">{{user.display_name}}</a></h5>
+          <!-- <p>Software Engineer</p>
+          <p class="text-muted">500m away</p> -->
+        </div>
+        <div class="col-md-3 col-sm-3" *ngIf='current_user.id!=user.id'>
+          <button *ngIf='canFollow(user.id) else unfollow' class="btn btn-primary pull-right" (click)='followUser(user.id,user)'>Follow</button>
+          <ng-template #unfollow>
+            <button class="btn btn-warning pull-right" (click)='unFollowUser(user.id,user)'>Unfollow</button>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

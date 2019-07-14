@@ -1,0 +1,371 @@
+<html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This is social network html5 template available in themeforest......">
+    <meta name="keywords" content="Social Network, Social Media, Make Friends, Newsfeed, Profile Page">
+    <meta name="robots" content="index, follow">
+    <base href="/">
+    <title>Platezero </title>
+
+    <!-- Stylesheets
+    ================================================= -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="css/emoji.css" rel="stylesheet">
+    
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
+    
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/png" href="images/fav.png">
+  </head>
+  <body>
+    <app ng-version="4.0.3"><router-outlet></router-outlet><page_body ng-version="4.0.3">
+<header id="header">
+  <nav class="navbar navbar-default navbar-fixed-top menu">
+    <div class="container">
+      
+      <div class="navbar-header">
+        <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index-register.html">
+          
+          <h2 style="padding: 0;margin: 0;height: 100%;color: white;line-height: inherit;font-family: monospace;">PlateZero</h2>
+        </a>
+      </div>
+      
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right main-menu">
+          <li><a ng-reflect-router-link="feeds" href="#/pages/feeds">All Edibles</a></li>
+          <li><a ng-reflect-router-link="profile" href="#/pages/profile">Profile</a></li>
+          <li><a>Logout</a></li>
+        </ul>
+        <form class="navbar-form navbar-right hidden-sm">
+          <div class="form-group">
+            <i class="icon ion-android-search"></i>
+            <input class="form-control" placeholder="Search edibles" type="text">
+          </div>
+        </form>
+      </div>
+      
+    </div>
+    
+  </nav>
+</header>
+
+<div id="page-contents">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-md-3 static">
+        <div class="profile-card">
+          <lazy-image alt="" class="profile-photo" src="images/placeholder.png" ng-reflect-src="images/placeholder.png" ng-reflect-data-src="http://oyolautechalumni.org/im" ng-reflect-class-names="profile-photo">
+  	<img src="http://oyolautechalumni.org/image_upload/profile/Hkn2DuFsrMhn8b10ZvZFyGI2Ptk1/thumb/2BFDE71F-9909-4828-9324-57472A532BD5.jpg" class="profile-photo" style="">
+  </lazy-image>
+          <h5><a class="text-white" href="timeline.html">Israel Alagbe</a></h5>
+          <a class="text-white" href="#"><i class="ion ion-android-person-add"></i> 1,299 followers</a>
+        </div>
+        
+        <ul class="nav-news-feed" id="chat-block">
+          <li><i class="icon ion-ios-paper"></i>
+            <div><a href="newsfeed.html">My Newsfeed</a></div>
+          </li>
+          <li><i class="icon ion-ios-people"></i>
+            <div><a href="newsfeed-people-nearby.html">People Nearby</a></div>
+          </li>
+          <li><i class="icon ion-ios-people-outline"></i>
+            <div><a href="newsfeed-friends.html">Friends</a></div>
+          </li>
+          <li><i class="icon ion-chatboxes"></i>
+            <div><a href="newsfeed-messages.html">Messages</a></div>
+          </li>
+          <li><i class="icon ion-images"></i>
+            <div><a href="newsfeed-images.html">Images</a></div>
+          </li>
+          <li><i class="icon ion-ios-videocam"></i>
+            <div><a href="newsfeed-videos.html">Videos</a></div>
+          </li>
+        </ul>
+        
+        
+      </div>
+      <router-outlet></router-outlet><ng-component ng-version="4.0.3">
+
+
+
+<div class="col-md-7">
+
+            
+            <div class="create-post">
+              <div class="row">
+                <div class="col-md-9 col-sm-9">
+                  <div class="form-group">
+                    <lazy-image alt="" class="profile-photo-md" src="images/placeholder.png" ng-reflect-src="images/placeholder.png" ng-reflect-data-src="http://oyolautechalumni.org/im" ng-reflect-class-names="profile-photo-md">
+  	<img src="http://oyolautechalumni.org/image_upload/profile/Hkn2DuFsrMhn8b10ZvZFyGI2Ptk1/thumb/2BFDE71F-9909-4828-9324-57472A532BD5.jpg" class="profile-photo-md" style="">
+  </lazy-image>
+                    <input class="form-control ng-untouched ng-pristine ng-valid" name="title" placeholder="Title" type="text" ng-reflect-name="title">
+                    &nbsp;&nbsp;&nbsp;
+                    <textarea class="form-control ng-untouched ng-pristine ng-valid" cols="30" id="exampleTextarea" name="texts" placeholder="Write what you wish" rows="1" ng-reflect-name="texts"></textarea>
+                    <input accept="image/*" multiple="" name="file" style="display: none;" type="file">
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                  <div class="tools">
+                    <ul class="publishing-tools list-inline">
+                     
+                      <li><a><i class="ion-images"></i></a></li>
+                      
+                    </ul>
+                    <button class="btn btn-primary pull-right">Publish</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
+            <!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><div class="post-content">
+              <!--bindings={}-->
+              <div class="post-container">
+                <lazy-image alt="user" class="profile-photo-md pull-left" src="images/placeholder.png" ng-reflect-src="images/placeholder.png" ng-reflect-data-src="" ng-reflect-class-names="profile-photo-md pull-left">
+  	<img src="images/placeholder.png" class="profile-photo-md pull-left" style="">
+  </lazy-image>
+                <div class="post-detail">
+                  <div class="user-info">
+                    <h5><a class="profile-link" href="timeline.html"></a> <span class="following">following</span></h5>
+                    <p class="text-muted">Published a post about 313 day(s) ago</p>
+                  </div>
+                  <div class="reaction">
+                    <a class="btn text-green"><i class="icon ion-thumbsup"></i> 1</a>
+                    <a class="btn text-green"><i class="fa fa-comment"></i> 0</a>
+                    <a class="btn text-green"><i class="fa fa-eye"></i> 0</a>
+                  </div>
+                  <div class="line-divider"></div>
+                  <div class="post-text" style="cursor: pointer;">
+                  	<strong>The love of money</strong>
+                    <p>
+                    	<span>see the love of food</span> &nbsp;<a>More...</a>
+                    </p>
+                  </div>
+                  <div class="line-divider"></div>
+                  
+                </div>
+              </div>
+            </div><div class="post-content">
+              <!--bindings={}-->
+              <div class="post-container">
+                <lazy-image alt="user" class="profile-photo-md pull-left" src="images/placeholder.png" ng-reflect-src="images/placeholder.png" ng-reflect-data-src="" ng-reflect-class-names="profile-photo-md pull-left">
+  	<img src="images/placeholder.png" class="profile-photo-md pull-left" style="">
+  </lazy-image>
+                <div class="post-detail">
+                  <div class="user-info">
+                    <h5><a class="profile-link" href="timeline.html"></a> <span class="following">following</span></h5>
+                    <p class="text-muted">Published a post about 332 day(s) ago</p>
+                  </div>
+                  <div class="reaction">
+                    <a class="btn text-green"><i class="icon ion-thumbsup"></i> 0</a>
+                    <a class="btn text-green"><i class="fa fa-comment"></i> 0</a>
+                    <a class="btn text-green"><i class="fa fa-eye"></i> 0</a>
+                  </div>
+                  <div class="line-divider"></div>
+                  <div class="post-text" style="cursor: pointer;">
+                  	<strong>The process of making fried ofada rice</strong>
+                    <p>
+                    	<span>This is the process.  <br>let's keep it well</span> &nbsp;<a>More...</a>
+                    </p>
+                  </div>
+                  <div class="line-divider"></div>
+                  
+                </div>
+              </div>
+            </div><div class="post-content">
+              <!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><lazy-image alt="post-image" class="img-responsive post-image" src="images/placeholder.png" style="cursor: pointer;max-height: 500px;" ng-reflect-src="images/placeholder.png" ng-reflect-data-src="images/food.jpg" ng-reflect-class-names="img-responsive post-image" ng-reflect-style-names="cursor: pointer;max-height: 50">
+  	<img src="http://localhost:3000/images/food.jpg" class="img-responsive post-image" style="cursor: pointer; max-height: 500px;">
+  </lazy-image>
+              <div class="post-container">
+                <lazy-image alt="user" class="profile-photo-md pull-left" src="images/placeholder.png" ng-reflect-src="images/placeholder.png" ng-reflect-data-src="" ng-reflect-class-names="profile-photo-md pull-left">
+  	<img src="images/placeholder.png" class="profile-photo-md pull-left" style="">
+  </lazy-image>
+                <div class="post-detail">
+                  <div class="user-info">
+                    <h5><a class="profile-link" href="timeline.html"></a> <span class="following">following</span></h5>
+                    <p class="text-muted">Published a post about 333 day(s) ago</p>
+                  </div>
+                  <div class="reaction">
+                    <a class="btn text-green"><i class="icon ion-thumbsup"></i> 1</a>
+                    <a class="btn text-green"><i class="fa fa-comment"></i> 0</a>
+                    <a class="btn text-green"><i class="fa fa-eye"></i> 0</a>
+                  </div>
+                  <div class="line-divider"></div>
+                  <div class="post-text" style="cursor: pointer;">
+                  	<strong>Tiny Rice and noodles </strong>
+                    <p>
+                    	<span>This is the description for tiny Rice. <br><br>let's get this on the usage and how it works</span> &nbsp;<a>More...</a>
+                    </p>
+                  </div>
+                  <div class="line-divider"></div>
+                  
+                </div>
+              </div>
+            </div><div class="post-content">
+              <!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><lazy-image alt="post-image" class="img-responsive post-image" src="images/placeholder.png" style="cursor: pointer;max-height: 500px;" ng-reflect-src="images/placeholder.png" ng-reflect-data-src="images/food.jpg" ng-reflect-class-names="img-responsive post-image" ng-reflect-style-names="cursor: pointer;max-height: 50">
+  	<img src="http://localhost:3000/images/food.jpg" class="img-responsive post-image" style="cursor: pointer; max-height: 500px;">
+  </lazy-image>
+              <div class="post-container">
+                <lazy-image alt="user" class="profile-photo-md pull-left" src="images/placeholder.png" ng-reflect-src="images/placeholder.png" ng-reflect-data-src="" ng-reflect-class-names="profile-photo-md pull-left">
+  	<img src="images/placeholder.png" class="profile-photo-md pull-left" style="">
+  </lazy-image>
+                <div class="post-detail">
+                  <div class="user-info">
+                    <h5><a class="profile-link" href="timeline.html"></a> <span class="following">following</span></h5>
+                    <p class="text-muted">Published a post about 333 day(s) ago</p>
+                  </div>
+                  <div class="reaction">
+                    <a class="btn text-green"><i class="icon ion-thumbsup"></i> 0</a>
+                    <a class="btn text-green"><i class="fa fa-comment"></i> 0</a>
+                    <a class="btn text-green"><i class="fa fa-eye"></i> 0</a>
+                  </div>
+                  <div class="line-divider"></div>
+                  <div class="post-text" style="cursor: pointer;">
+                  	<strong></strong>
+                    <p>
+                    	<span>saving us since 1960</span> &nbsp;<a>More...</a>
+                    </p>
+                  </div>
+                  <div class="line-divider"></div>
+                  
+                </div>
+              </div>
+            </div>
+</div></ng-component>
+      
+      <div class="col-md-2 static">
+        <div class="suggestions" id="sticky-sidebar">
+          <h4 class="grey">Who to Follow</h4>
+          <div class="follow-user">
+            <img alt="" class="profile-photo-sm pull-left" src="images/th.jpg">
+            <div>
+              <h5><a href="timeline.html">Diana Amber</a></h5>
+              <a class="text-green" href="#">Add friend</a>
+            </div>
+          </div>
+          <div class="follow-user">
+            <img alt="" class="profile-photo-sm pull-left" src="images/th.jpg">
+            <div>
+              <h5><a href="timeline.html">Cris Haris</a></h5>
+              <a class="text-green" href="#">Add friend</a>
+            </div>
+          </div>
+          <div class="follow-user">
+            <img alt="" class="profile-photo-sm pull-left" src="images/th.jpg">
+            <div>
+              <h5><a href="timeline.html">Brian Walton</a></h5>
+              <a class="text-green" href="#">Add friend</a>
+            </div>
+          </div>
+          <div class="follow-user">
+            <img alt="" class="profile-photo-sm pull-left" src="images/th.jpg">
+            <div>
+              <h5><a href="timeline.html">Olivia Steward</a></h5>
+              <a class="text-green" href="#">Add friend</a>
+            </div>
+          </div>
+          <div class="follow-user">
+            <img alt="" class="profile-photo-sm pull-left" src="images/th.jpg">
+            <div>
+              <h5><a href="timeline.html">Sophia Page</a></h5>
+              <a class="text-green" href="#">Add friend</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer-wrapper">
+        <div class="col-md-3 col-sm-3">
+          <a href=""><img alt="" class="footer-logo" src="images/logo-black.png"></a>
+          <ul class="list-inline social-icons">
+            <li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
+            <li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
+            <li><a href="#"><i class="icon ion-social-googleplus"></i></a></li>
+            <li><a href="#"><i class="icon ion-social-pinterest"></i></a></li>
+            <li><a href="#"><i class="icon ion-social-linkedin"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 col-sm-2">
+          <h5>For individuals</h5>
+          <ul class="footer-links">
+            <li><a href="">Signup</a></li>
+            <li><a href="">login</a></li>
+            <li><a href="">Explore</a></li>
+            <li><a href="">Finder app</a></li>
+            <li><a href="">Features</a></li>
+            <li><a href="">Language settings</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 col-sm-2">
+          <h5>For businesses</h5>
+          <ul class="footer-links">
+            <li><a href="">Business signup</a></li>
+            <li><a href="">Business login</a></li>
+            <li><a href="">Benefits</a></li>
+            <li><a href="">Resources</a></li>
+            <li><a href="">Advertise</a></li>
+            <li><a href="">Setup</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 col-sm-2">
+          <h5>About</h5>
+          <ul class="footer-links">
+            <li><a href="">About us</a></li>
+            <li><a href="">Contact us</a></li>
+            <li><a href="">Privacy Policy</a></li>
+            <li><a href="">Terms</a></li>
+            <li><a href="">Help</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <h5>Contact Us</h5>
+          <ul class="contact">
+            <li><i class="icon ion-ios-telephone-outline"></i>+2348107760824</li>
+            <li><i class="icon ion-ios-email-outline"></i>platezero@platezero.com</li>
+            <li><i class="icon ion-ios-location-outline"></i>228 Park Lagos, Nigeria</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    <p>PlateZero © 2018. All rights reserved</p>
+  </div>
+</footer>
+</page_body>
+</app>
+    
+    
+    <!-- Scripts
+    ================================================= -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky-kit.min.js"></script>
+    <script src="js/jquery.scrollbar.min.js"></script>
+    <script src="js/script.js"></script>
+  <script type="text/javascript" src="main.bundle.js"></script>
+
+</body></html>

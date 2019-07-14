@@ -1,0 +1,79 @@
+<!-- <div *ngIf='feedObservable|async;let feed'>
+  
+  <h1><a>{{feed.feed_title}}</a></h1>
+
+  <a (click)='showFeedDetails(feed)'><img style="width: 200px;height: 200px;" *ngFor='let image of feed.Images'  src="{{image.path}}"></a>
+  <div style="padding: 20px;">
+    {{feed.feed_content}}
+  </div>
+  <div>
+    <button  (click)='likeFeed(feed)'>{{feed.likes}} Like</button>
+    <button>{{feed.total_comments}} Comments</button>
+    <button>{{feed.views}} Views</button>
+    <br>
+    <form  (submit)="addComment($event)">
+      <input type="text" [(ngModel)]='commentText' name="comment" placeholder="Comment">
+    </form>
+  </div>
+  <hr style="width: 100%;">
+  <h2>Comments</h2>
+  <div *ngFor='let comment of commentsObservable|async'  >
+    <div *ngIf='comment.userObservable|async;let user'>
+    <span>User: {{user.display_name}}</span><br>
+    <span>Comment: {{comment.feed_comment}}</span><br>
+    <span>Date: {{comment.date_posted}}</span><br>
+    <hr style="width: 100%;">
+  </div>
+
+  </div>
+</div> -->
+<div class="col-md-7">
+  <div id="spinner-wrapper" *ngIf='!feedObservable|async;'>
+    <div class="spinner"></div>
+  </div>
+  <!-- Post Content
+            ================================================= -->
+  <div class="post-content" *ngIf='feedObservable|async;let feed'>
+    <lazy-image (click)='showFeedDetails(feed)' *ngIf='feed.Images&&feed.Images[0]?.image_uploaded' src='images/placeholder.png' dataSrc="{{feed.Images[0].path}}" alt="post-image" class="img-responsive post-image" style="cursor: pointer;max-height: 500px;"></lazy-image>
+    <div class="post-container">
+      <a (click)='gotoUserProfile(feed.user_id)'>
+        <lazy-image src="images/placeholder.png" alt="user" class="profile-photo-md pull-left" style="cursor: pointer;" dataSrc="{{(feed.userObservable|async)?.small_picture_path}}"></lazy-image>
+      </a>
+      <div class="post-detail">
+        <div class="user-info">
+          <h5><a style="cursor: pointer;" (click)='gotoUserProfile(feed.user_id)' class="profile-link">{{(feed.userObservable|async)?.display_name}}</a></h5>
+          <p class="text-muted">Published a post about {{feed.date_posted|ago}}</p>
+        </div>
+        <div class="reaction">
+          <a class="btn text-green" (click)='likeFeed(feed)'><i class="icon ion-thumbsup" ></i> {{feed.likes}}</a>
+          <a class="btn text-green" (click)='showFeedDetails(feed)'><i class="fa fa-comment"></i> {{feed.total_comments}}</a>
+          <a class="btn text-green" (click)='showFeedDetails(feed)'><i class="fa fa-eye"></i> {{feed.views}}</a>
+        </div>
+        <div class="line-divider"></div>
+        <div class="post-text" style="cursor: pointer;" (click)="showFeedDetails(feed)">
+          <strong (click)='showFeedDetails(feed)'>{{feed.feed_title}}</strong>
+          <p [innerHTML]="formatFeedText(feed.feed_content)|safe:'html'" style="white-space: pre-wrap;"></p>
+          <!-- <p ></p> -->
+        </div>
+        <div class="line-divider"></div>
+        <form (submit)="addComment($event)">
+          <div class="post-comment">
+            <lazy-image src="images/placeholder.png" alt="Photo" class="profile-photo-sm" dataSrc="{{currentUser.small_picture_path}}"></lazy-image>
+            <input [(ngModel)]='commentText' style="width: 250px !important;" name="comment" type="text" class="form-control" placeholder="Post a comment">
+            <lazy-image *ngIf='addingComment' src="images/placeholder.png" alt="Loading..." style="width: 40px;height: 40px;padding-left: 10px;" dataSrc="images/loading-gif-png-1.gif"></lazy-image> 
+          </div>
+        </form>
+        <h2>Comments</h2>
+        <div *ngFor='let comment of commentsObservable|async'>
+          <div class="post-comment" *ngIf='comment.userObservable|async;let user'>
+            <lazy-image src="images/placeholder.png" alt="Photo" class="profile-photo-sm" dataSrc="{{user.small_picture_path}}"></lazy-image>
+            <p><a style="cursor: pointer;" (click)='gotoUserProfile(user.id)' class="profile-link">{{user.display_name}}</a> <span class="text-muted">{{comment.date_posted|ago}}</span> 
+         <br>
+              {{comment.feed_comment}}
+           </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

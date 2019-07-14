@@ -1,0 +1,81 @@
+<!-- Hello from component
+<div *ngFor='let feed of feedsObservable|async'>
+  
+  <h1><a (click)='showFeedDetails(feed)'>{{feed.feed_title}}</a></h1>
+
+  <a (click)='showFeedDetails(feed)' *ngIf='feed.Images!=null'><img style="width: 200px;height: 200px;"  src="{{feed.Images[0].path}}"></a>
+  <div>
+    <button (click)='likeFeed(feed)'>{{feed.likes}} Like</button>
+    <button>{{feed.total_comments}} Comments</button>
+    <button>{{feed.views}} Views</button>
+  </div>
+  <hr style="width: 100%;">
+</div>
+<div style="text-align: center;">
+  <button (click)='prevPage()'>Prev Page</button>|<button (click)='nextPage()'>Next Page</button>
+</div> -->
+<div class="col-md-7">
+  <!-- Post Create Box
+            ================================================= -->
+  <div class="create-post">
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group" style="width: 100%;">
+          <lazy-image src="images/placeholder.png" alt="" class="profile-photo-md" dataSrc="{{user.small_picture_path}}"></lazy-image>
+          <input type="text" name="title" class="form-control" placeholder="Title" [(ngModel)]='feed.feed_title'> &nbsp;&nbsp;&nbsp;
+          <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Write what you wish" [(ngModel)]='feed.feed_content'></textarea>
+          <input (change)='preview($event)' multiple accept="image/*" type="file" name="file" style="display: none;" #fileInput>
+          
+        </div>
+      </div>
+      <div class="col-md-12" style="display: flex;justify-content: space-evenly;margin-top: 15px;">
+        <a style="font-size: 30px;
+    color: #1088ff;" (click)='pickImage($event)'><i class="ion-images"></i></a>
+          <lazy-image *ngIf='currentlyPosting' src="images/placeholder.png" alt="Loading..." style="width: 40px;height: 40px;" dataSrc="images/loading-gif-png-1.gif"></lazy-image> 
+           
+          <button *ngIf='!currentlyPosting' [disabled]='!(feed.feed_content&&feed.feed_title)' (click)='addFeed()' style="" class="btn btn-primary">Publish</button>
+
+
+       
+      </div>
+    </div>
+  </div>
+  <!-- Post Create Box End-->
+  <div class="create-post" *ngIf='selectedImages.length'>
+    <img *ngFor='let item of selectedImages' src="{{item.base64}}" style="width: 50px;height: 50px;margin: 5px;">
+  </div>
+ <div style="text-align: center;height: 50px;">
+          <button [disabled]="loadingData" class="btn btn-primary" (click)='showFeeds(undefined,true)'>Newer Posts</button>
+  </div>
+  <!-- Post Content
+            ================================================= -->
+  <div class="post-content" *ngFor='let feed of feedsObservable|async'>
+    <lazy-image  (click)='showFeedDetails(feed)' *ngIf='feed.Images&&feed.Images[0]?.image_uploaded' src='images/placeholder.png' dataSrc="{{feed.Images[0].path}}" alt="post-image" class="img-responsive post-image" style="cursor: pointer;max-height: 500px;"></lazy-image>
+    <div class="post-container">
+      <a (click)='gotoUserProfile(feed.user_id)'>
+        <lazy-image src="images/placeholder.png" alt="user" class="profile-photo-md pull-left" style="cursor: pointer;" dataSrc="{{(feed.userObservable|async)?.small_picture_path}}"></lazy-image>
+      </a>
+      <div class="post-detail">
+        <div class="user-info">
+          <h5><a style="cursor: pointer;" (click)='gotoUserProfile(feed.user_id)' class="profile-link">{{(feed.userObservable|async)?.display_name}}</a></h5>
+          <p class="text-muted">Published a post about {{feed.date_posted|ago}}</p>
+        </div>
+        <div class="reaction">
+          <a class="btn text-green" (click)='likeFeed(feed)'><i class="icon ion-thumbsup" ></i> {{feed.likes}}</a>
+          <a class="btn text-green" (click)='showFeedDetails(feed)'><i class="fa fa-comment"></i> {{feed.total_comments}}</a>
+          <a class="btn text-green" (click)='showFeedDetails(feed)'><i class="fa fa-eye"></i> {{feed.views}}</a>
+        </div>
+        <div class="line-divider"></div>
+        <div class="post-text" style="cursor: pointer;" (click)="showFeedDetails(feed)">
+          <strong (click)='showFeedDetails(feed)'>{{feed.feed_title}}</strong>
+          <p [innerHTML]="formatFeedText(feed.feed_content)|safe:'html'" style="white-space: pre-wrap;"></p>
+            <!-- <p ></p> -->
+          
+        </div>
+        <div class="line-divider"></div>
+      </div>
+    </div>
+  </div>
+<div style="text-align: center;height: 50px;">
+          <button [disabled]="loadingData" class="btn btn-primary" (click)='loadMore(user.id)'>Load More</button>
+  </div>

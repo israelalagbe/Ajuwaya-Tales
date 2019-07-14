@@ -1,0 +1,92 @@
+<!-- Landing Page Contents
+    ================================================= -->
+<div id="lp-register">
+  <div class="container wrapper">
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="intro-texts">
+          <h1 class="text-white">Connect with friends !!!</h1>
+          <p>Ajuwaya is a social network that enable you to connect with people in Nigeria. <!-- that teaches you how to make cool food. Be it local, international, semi-local and village local -->
+            <br />
+            <br />Why are you waiting for? <a href="#register" data-toggle="tab">Join now</a> </p>
+          <!-- <button class="btn btn-primary">Learn More</button> -->
+        </div>
+      </div>
+      <div class="col-sm-6 col-sm-offset-1">
+        <div class="reg-form-container">
+          <!-- Register/Login Tabs-->
+          <div class="reg-options">
+            <ul class="nav nav-tabs">
+              <li><a href="#register" data-toggle="tab">Register</a></li>
+              <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
+            </ul>
+            <!--Tabs End-->
+          </div>
+          <!--Registration Form Contents-->
+          <div class="tab-content">
+            <div class="tab-pane" id="register">
+              <h3>Register Now !!!</h3>
+              <p class="text-muted">Be cool and join today. Meet millions</p>
+              <!--Register Form-->
+              <form name="registration_form" id='registration_form' class="form-inline">
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <label for="firstname" class="sr-only">Name</label>
+                    <input [(ngModel)]='user.display_name' id="firstname" class="form-control input-group-lg" type="text" name="firstname" title="Enter Fullname" placeholder="Name" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <label for="email" class="sr-only">Email</label>
+                    <input [(ngModel)]='user.email' id="email" class="form-control input-group-lg" type="text" name="Email" title="Enter Email" placeholder="Your Email" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <label for="password" class="sr-only">Password</label>
+                    <input [(ngModel)]='user.password' id="password" class="form-control input-group-lg" type="password" name="password" title="Enter password" placeholder="Password" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-xs-12" style="text-align: left;">
+                    <span *ngIf="!(user.password==user.confirm_password)" style="color: red;">Password not equal</span>
+                    <label for="password" class="sr-only">Confirm Password</label>
+                    <input [(ngModel)]='user.confirm_password' id="confirm_password" class="form-control input-group-lg" type="password" name="confirm_password" title="Confirm Password" placeholder="Confirm Password" />
+                  </div>
+                </div>
+              </form>
+              <!--Register Now Form Ends-->
+              <p>Already have an account? <a href="#login" data-toggle="tab">SignIn</a></p>
+              <button [disabled]="!(user.email&&user.password&&user.display_name)||loading&&!(user.password==user.confirm_password)"
+              (click)='register(user)' class="btn btn-primary">Register Now</button>
+            </div>
+            <!--Registration Form Contents Ends-->
+            <!--Login-->
+            <div class="tab-pane active" id="login">
+              <h3>Login</h3>
+              <p class="text-muted">Log into your account</p>
+              <!--Login Form-->
+              <form name="Login_form" id='Login_form'>
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <label for="my-email" class="sr-only">Email</label>
+                    <input [(ngModel)]='user.email' id="my-email" class="form-control input-group-lg" type="text" name="Email" title="Enter Email" placeholder="Your Email" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <label for="my-password" class="sr-only">Password</label>
+                    <input [(ngModel)]='user.password' id="my-password" class="form-control input-group-lg" type="password" name="password" title="Enter password" placeholder="Password" />
+                  </div>
+                </div>
+              </form>
+              <!--Login Form Ends-->
+              <p><a href="#">Forgot Password?</a></p>
+              <button [disabled]="!(user.email&&user.password)||loading"
+              (click)='loginWithEmail(user.email,user.password)'
+               class="btn btn-primary">Login Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
