@@ -1,5 +1,5 @@
 ## Ajuwaya Tales
-A social network for coppers built with Angular and firebase.
+A social network for corpers built with Angular and firebase.
 
 ### Usage
 - Clone or fork this repository
